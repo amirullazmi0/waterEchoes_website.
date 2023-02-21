@@ -4,6 +4,7 @@ import Navbar from '@/Components/TemplateAdmin/Navbar';
 import Sensor from '@/Components/TemplateAdmin/Sensor';
 import { Head } from '@inertiajs/react';
 import React from 'react';
+
 export default function Home(props) {
     // console.log(props.sensor)
     return (

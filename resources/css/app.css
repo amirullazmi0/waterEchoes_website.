@@ -4,6 +4,52 @@
 .bg-body{
     background-image: linear-gradient(to bottom right, rgb(231, 232, 241), rgb(255, 255, 255));
 }
+.sisi-form{
+    background-color: rgb(80, 98, 255);
+}
+.sisi-form .card-form{
+    border-bottom-right-radius: 70px;
+    border-top-right-radius: 5px;
+    border-bottom-left-radius: 5px;
+    border-top-left-radius: 5px;
+    box-shadow: 2px 2px 15px rgb(48, 57, 138);
+}
+
+.sisi-img{
+    width: 50vw;
+    height: 100vh;
+    max-width: 50vw;
+    max-height: 100vh;
+    overflow: hidden;
+}
+
+.head-login{
+    font-size: 50px;
+    font-weight: bold;
+    color: rgb(68, 69, 73);
+    margin-bottom: 20px;
+}
+.img-login{
+    width: 50vw;
+    height: 100vh;
+    max-width: 50vw;
+    max-height: 100vh;
+    transform-origin: center;
+    animation: pulse 15s ease-in-out infinite alternate;
+}
+
+/* .sisi-img:hover .img-login{
+    transform: scale(2.5);
+} */
+
+@keyframes pulse {
+    from {
+      transform: scale(1);
+    }
+    to {
+      transform: scale(2.0);
+    }
+  }
 
 .tron{
     height: 250px;
@@ -93,18 +139,33 @@
     padding: 10px;
 }
 
-.sidebar-list .active{
+.sidebar-item:hover{
     background-color: rgb(80, 98, 255);
     color: rgb(255, 255, 255);
-    border-top-right-radius: 50px;
-    border-top-left-radius: 10px;
-    border-bottom-left-radius: 10px;
+    border-top-right-radius: 30px;
+    border-top-left-radius: 0px;
+    border-bottom-left-radius: 20px;
     border-bottom-right-radius: 0px;
     padding: 10px;
 }
 
-.daftar-table{
-    margin-left: 40px;
+.sidebar-list .active{
+    background-color: rgb(80, 98, 255);
+    color: rgb(255, 255, 255);
+    border-top-right-radius: 30px;
+    border-top-left-radius: 0px;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 0px;
+    padding: 10px;
+}
+
+.sidebar-list .active-mid{
+    background-color: rgb(80, 98, 255);
+    color: rgb(255, 255, 255);
+    border-top-right-radius: 10px;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
     padding: 10px;
 }
 
@@ -127,8 +188,6 @@
     background: rgb(252, 73, 19);
     border-color: transparent;
 }
-
-
 
 @media screen and (max-width: 600px) {
     #sidebar-on{

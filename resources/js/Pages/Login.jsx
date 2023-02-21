@@ -37,8 +37,6 @@ export default function Login({ status, canResetPassword }) {
                     <div className="card-form bg-white p-4 lg:p-10 w-96 border">
                         <Head title="Log in" />
 
-                        <div className="head-login flex justify-center">WATER ECHOES</div>
-
                         {status && <div className="mb-4 font-medium text-sm text-green-600">{status}</div>}
 
                         <form onSubmit={submit}>
@@ -73,6 +71,13 @@ export default function Login({ status, canResetPassword }) {
                                 />
 
                                 <InputError message={errors.password} className="mt-2" />
+                            </div>
+
+                            <div className="block mt-4">
+                                <label className="flex items-center">
+                                    <Checkbox name="remember" value={data.remember} handleChange={onHandleChange} />
+                                    <span className="ml-2 text-sm text-gray-600">Remember me</span>
+                                </label>
                             </div>
 
                             <div className="flex items-center justify-center mt-4">
