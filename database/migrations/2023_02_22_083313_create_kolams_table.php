@@ -13,14 +13,9 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('sensors', function (Blueprint $table) {
+        Schema::create('kolams', function (Blueprint $table) {
             $table->id();
-            $table->foreignid('kolam_id');
-            $table->string('value1');
-            $table->string('value2');
-            $table->string('value3');
-            $table->string('value4');
-            $table->string('value5');
+            $table->string('nama');
             $table->timestamps();
         });
     }
@@ -32,6 +27,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('sensors');
+        Schema::dropIfExists('kolams');
     }
 };

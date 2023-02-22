@@ -37,7 +37,8 @@ export default function Login({ status, canResetPassword }) {
                     <div className="card-form bg-white p-4 lg:p-10 w-96 border">
                         <Head title="Log in" />
 
-                        <div className="head-login flex justify-center">WATER ECHOES</div>
+                        {/* <div className="head-login flex justify-center">WATER ECHOES</div> */}
+                        <img className='flex justify-center' src="/img/logo.png" alt="" />
 
                         {status && <div className="mb-4 font-medium text-sm text-green-600">{status}</div>}
 

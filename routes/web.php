@@ -19,11 +19,12 @@ use App\Http\Controllers\ProfileController;
 */
 
 Route::get('/', [AdminController::class, 'index'])->middleware(['auth', 'verified'])->name('dashboard');
+Route::get('/table-ph', [AdminController::class, 'table_ph'])->middleware(['auth', 'verified'])->name('ph');
 Route::get('/login', [LoginController::class, 'index'])->name('login');
 
-Route::get('/dashboard', function () {
-    return Inertia::render('Dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
+// Route::get('/dashboard', function () {
+//     return Inertia::render('Dashboard');
+// })->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');

@@ -31,91 +31,102 @@ export default function Register() {
     };
 
     return (
-        <GuestLayout>
-            <Head title="Register" />
+        <>
+            <div className="flex h-screen w-screen">
+                <div className="flex flex-auto lg:flex-1 items-center justify-center sisi-form">
+                    <div className="card-form bg-white p-4 lg:p-10 lg:w-8/12 w-96 border">
+                        <Head title="Register" />
 
-            <form onSubmit={submit}>
-                <div>
-                    <InputLabel forInput="name" value="Name" />
+                        <img className='flex justify-center' src="/img/logo.png" alt="" />
 
-                    <TextInput
-                        id="name"
-                        name="name"
-                        value={data.name}
-                        className="mt-1 block w-full"
-                        autoComplete="name"
-                        isFocused={true}
-                        handleChange={onHandleChange}
-                        required
-                    />
+                        <form onSubmit={submit}>
+                            <div>
+                                <InputLabel forInput="name" value="Name" />
 
-                    <InputError message={errors.name} className="mt-2" />
+                                <TextInput
+                                    id="name"
+                                    name="name"
+                                    value={data.name}
+                                    className="mt-1 block w-full"
+                                    autoComplete="name"
+                                    isFocused={true}
+                                    handleChange={onHandleChange}
+                                    required
+                                />
+
+                                <InputError message={errors.name} className="mt-2" />
+                            </div>
+
+                            <div className="mt-4">
+                                <InputLabel forInput="email" value="Email" />
+
+                                <TextInput
+                                    id="email"
+                                    type="email"
+                                    name="email"
+                                    value={data.email}
+                                    className="mt-1 block w-full"
+                                    autoComplete="username"
+                                    handleChange={onHandleChange}
+                                    required
+                                />
+
+                                <InputError message={errors.email} className="mt-2" />
+                            </div>
+
+                            <div className="mt-4">
+                                <InputLabel forInput="password" value="Password" />
+
+                                <TextInput
+                                    id="password"
+                                    type="password"
+                                    name="password"
+                                    value={data.password}
+                                    className="mt-1 block w-full"
+                                    autoComplete="new-password"
+                                    handleChange={onHandleChange}
+                                    required
+                                />
+
+                                <InputError message={errors.password} className="mt-2" />
+                            </div>
+
+                            <div className="mt-4">
+                                <InputLabel forInput="password_confirmation" value="Confirm Password" />
+
+                                <TextInput
+                                    id="password_confirmation"
+                                    type="password"
+                                    name="password_confirmation"
+                                    value={data.password_confirmation}
+                                    className="mt-1 block w-full"
+                                    autoComplete="new-password"
+                                    handleChange={onHandleChange}
+                                    required
+                                />
+
+                                <InputError message={errors.password_confirmation} className="mt-2" />
+                            </div>
+
+                            <div className=" mt-4">
+                                <Link
+                                    href={route('login')}
+                                    className="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+                                >
+                                    Already registered?
+                                </Link>
+
+                                <PrimaryButton className="ml-4" processing={processing}>
+                                    Register
+                                </PrimaryButton>
+                            </div>
+                        </form>
+                    </div>
                 </div>
-
-                <div className="mt-4">
-                    <InputLabel forInput="email" value="Email" />
-
-                    <TextInput
-                        id="email"
-                        type="email"
-                        name="email"
-                        value={data.email}
-                        className="mt-1 block w-full"
-                        autoComplete="username"
-                        handleChange={onHandleChange}
-                        required
-                    />
-
-                    <InputError message={errors.email} className="mt-2" />
+                <div className="hidden lg:block lg:flex-1 sisi-img">
+                    <img className='img-login' src="https://disk.mediaindonesia.com/thumbs/1800x1200/news/2021/01/12cd0b732ef65aa8f49eb989e82b5c97.jpg" alt="" />
                 </div>
-
-                <div className="mt-4">
-                    <InputLabel forInput="password" value="Password" />
-
-                    <TextInput
-                        id="password"
-                        type="password"
-                        name="password"
-                        value={data.password}
-                        className="mt-1 block w-full"
-                        autoComplete="new-password"
-                        handleChange={onHandleChange}
-                        required
-                    />
-
-                    <InputError message={errors.password} className="mt-2" />
-                </div>
-
-                <div className="mt-4">
-                    <InputLabel forInput="password_confirmation" value="Confirm Password" />
-
-                    <TextInput
-                        id="password_confirmation"
-                        type="password"
-                        name="password_confirmation"
-                        value={data.password_confirmation}
-                        className="mt-1 block w-full"
-                        autoComplete="new-password"
-                        handleChange={onHandleChange}
-                        required
-                    />
-
-                    <InputError message={errors.password_confirmation} className="mt-2" />
-                </div>
-
-                <div className="flex items-center justify-end mt-4">
-                    <Link
-                        href={route('login')}
-                        className="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
-                    >
-                        Already registered?
-                    </Link>
-
-                    <PrimaryButton className="ml-4" processing={processing}>
-                        Register
-                    </PrimaryButton>
-                </div>
-            </form>
-        </GuestLayout>
+            </div>
+        </>
     );
 }

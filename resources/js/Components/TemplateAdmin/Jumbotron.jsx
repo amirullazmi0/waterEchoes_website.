@@ -1,7 +1,9 @@
-const Jumbotron = () => {
+const Jumbotron = (props) => {
+    console.log(props)
     return (
         <>
-            <div className='tron '></div>
+            <div className='tron'>
+            </div>
         </>
     )
 }

@@ -18,9 +18,18 @@ class AdminController extends Controller
     {
         $data = [
             'title' => 'Dashboard',
-            'sensor' => Sensor::latest()
+            'sensor' => Sensor::latest()->get()
         ];
         return Inertia::render('Admin/Home', ($data));
+    }
+
+    public function table_ph()
+    {
+        $data = [
+            'title' => 'TABLE PH',
+            'sensor' => Sensor::latest()->get()
+        ];
+        return Inertia::render('Admin/TableSensor', ($data));
     }
 
     /**
