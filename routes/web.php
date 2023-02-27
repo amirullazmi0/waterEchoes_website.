@@ -6,6 +6,8 @@ use Illuminate\Foundation\Application;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\SensorController;
+use Fruitcake\Cors\HandleCors;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,8 +20,15 @@ use App\Http\Controllers\ProfileController;
 |
 */
 
+Route::post('/postData', [SensorController::class, 'index']);
+
 Route::get('/', [AdminController::class, 'index'])->middleware(['auth', 'verified'])->name('dashboard');
+Route::get('/home', [AdminController::class, 'index'])->middleware(['auth', 'verified'])->name('home');
 Route::get('/table-ph', [AdminController::class, 'table_ph'])->middleware(['auth', 'verified'])->name('ph');
+Route::get('/table-all', [AdminController::class, 'all_tableSensor'])->middleware(['auth', 'verified'])->name('allSensor');
+
+
+
 Route::get('/login', [LoginController::class, 'index'])->name('login');
 
 // Route::get('/dashboard', function () {

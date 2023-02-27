@@ -1,7 +1,8 @@
 import { Link } from "@inertiajs/react";
 import React, { useEffect, useRef, useState } from "react";
 
-const Navbar = () => {
+const Navbar = ({ active }) => {
+    const [iniActive, setIniActive] = useState(active)
     const [sidebar, setSidebar] = useState(false);
     const myRef = useRef(null);
 
@@ -34,7 +35,7 @@ const Navbar = () => {
                                 Water Echoes
                             </div> */}
                             <Link method="get" href={route('dashboard')}>
-                                <img className="h-14" src="/img/logo.png" alt="" />
+                                <img className="h-16" src="/img/WEon.png" alt="" />
                             </Link>
                             <button className="sidebar-button ml-auto" onClick={() => closeSidebar()}>
                                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2.5} stroke="currentColor" className="w-6 h-6">
@@ -47,7 +48,8 @@ const Navbar = () => {
                     <div className="grid mt-3">
                         <ul className="">
                             <li className="sidebar-list">
-                                <Link className="flex sidebar-item active" method="get" href={route('dashboard')}>
+                                {/* "flex sidebar-item active" */}
+                                <Link className={iniActive === 'dashboard' ? 'flex sidebar-item active' : 'flex sidebar-item'} method="get" href={route('dashboard')}>
                                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-7 h-7">
                                         <path strokeLinecap="round" strokeLinejoin="round" d="M2.25 12l8.954-8.955c.44-.439 1.152-.439 1.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75M8.25 21h8.25" />
                                     </svg>
@@ -58,7 +60,7 @@ const Navbar = () => {
                                 </Link>
                             </li>
                             <li className="sidebar-list">
-                                <Link className="flex sidebar-item" method="get" href={route('dashboard')}>
+                                <Link className={iniActive === 'all-table' ? 'flex sidebar-item active' : 'flex sidebar-item'} method="get" href={route('allSensor')}>
                                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-7 h-7">
                                         <path strokeLinecap="round" strokeLinejoin="round" d="M12 6.042A8.967 8.967 0 006 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 016 18c2.305 0 4.408.867 6 2.292m0-14.25a8.966 8.966 0 016-2.292c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0018 18a8.967 8.967 0 00-6 2.292m0-14.25v14.25" />
                                     </svg>
@@ -69,7 +71,7 @@ const Navbar = () => {
                             </li>
                             <hr className="mb-3" />
                             <li className="sidebar-list">
-                                <Link className="flex sidebar-item" method="get" href={route('ph')}>
+                                <Link className={iniActive === 'ph' ? 'flex sidebar-item active' : 'flex sidebar-item'} method="get" href={route('ph')}>
                                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-7 h-7">
                                         <path strokeLinecap="round" strokeLinejoin="round" d="M9.568 3H5.25A2.25 2.25 0 003 5.25v4.318c0 .597.237 1.17.659 1.591l9.581 9.581c.699.699 1.78.872 2.607.33a18.095 18.095 0 005.223-5.223c.542-.827.369-1.908-.33-2.607L11.16 3.66A2.25 2.25 0 009.568 3z" />
                                         <path strokeLinecap="round" strokeLinejoin="round" d="M6 6h.008v.008H6V6z" />
@@ -147,14 +149,14 @@ const Navbar = () => {
             <div id={sidebar ? 'sidebar-on' : 'sidebar-off'} ref={myRef} >{iniSidebar()}</div>
             <div className="navbar bg-ku lg:pr-6 lg:pl-6 ">
                 <div className="flex-1 nav-header">
-                    <div className="mr-2">
+                    <div className="flex mr-2 items-center">
                         <button onClick={() => openSidebar()}>
                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2.5} stroke="currentColor" className="w-6 h-6">
                                 <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
                             </svg>
                         </button>
                     </div>
-                    Water Echoes
+                    <img className="h-16" src="/img/WEon-white.png" alt="" />
                 </div>
                 <div className="flex-none">
                     <div className="dropdown dropdown-end">
@@ -194,7 +196,7 @@ const Navbar = () => {
                             </li>
                         </ul>
                     </div>
-                </div>  
+                </div>
             </div>
         </>
     )

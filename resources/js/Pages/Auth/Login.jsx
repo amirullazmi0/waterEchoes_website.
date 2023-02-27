@@ -38,7 +38,7 @@ export default function Login({ status, canResetPassword }) {
                         <Head title="Log in" />
 
                         {/* <div className="head-login flex justify-center">WATER ECHOES</div> */}
-                        <img className='flex justify-center' src="/img/logo.png" alt="" />
+                        <img className='flex justify-center' src="/img/Weon-full.png" alt="" />
 
                         {status && <div className="mb-4 font-medium text-sm text-green-600">{status}</div>}
 

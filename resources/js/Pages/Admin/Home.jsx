@@ -5,25 +5,33 @@ import Sensor from '@/Components/TemplateAdmin/Sensor';
 import SocketSensor from '@/Components/TemplateAdmin/SocketSensor';
 import { Head } from '@inertiajs/react';
 import React, { useEffect, useState } from 'react';
+import io from "socket.io-client";
+
+const SOCKET_SERVER_URL = 'http://127.0.0.1/8080';
+
+
 
 export default function Home(props) {
+    const [message, setMessage] = useState('');
+    useEffect(() => {
+        const socket = io.connect(SOCKET_SERVER_URL);
+
+        socket.on('message', (message) => {
+            setMessage(message);
+        });
+
+        // return () => {
+        //     socket.disconnect();
+        // };
+    }, []);
     return (
         <div className='bg-body'>
             <Head title={props.title} />
-            <Navbar />
+            <Navbar active={props.active} />
             <Jumbotron />
-            <SocketSensor />
-            <div className="m-2 mt-5 lg:mt-6 lg:mr-8 lg:ml-8 flex items-center">
-                {/* <h1 className='tron-title'>{props.title}</h1> */}
-                <div className="dropdown dropdown-left dropdown-end ml-auto">
-                    <label tabIndex={0} className="btn btn-md btn-orange">Kolam 1</label>
-                    <ul tabIndex={0} className="dropdown-content menu p-2 shadow bg-base-100 rounded-box w-52">
-                        <li><a>Kolam 2</a></li>
-                        <li><a>Kolam 3</a></li>
-                    </ul>
-                </div>
-            </div>
+            {/* <SocketSensor /> */}
             <div className="lg:p-6 mr-auto">
+                <h2 className='text-center'>{message}</h2>
                 <Sensor data={props.sensor} />
                 <Graph />
             </div>

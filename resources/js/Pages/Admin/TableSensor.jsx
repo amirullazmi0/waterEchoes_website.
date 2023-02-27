@@ -9,7 +9,7 @@ export default function TableSensor(props) {
     return (
         <div className='bg-body'>
             <Head title={props.title} />
-            <Navbar />
+            <Navbar active={props.active} />
             <Jumbotron />
             {/* <DetailSensor /> */}
             <div className="lg:p-6 p-3">

@@ -7,6 +7,7 @@ use App\Models\Sensor;
 use Inertia\Controller;
 use Illuminate\Http\Request;
 
+
 class AdminController extends Controller
 {
     /**
@@ -18,16 +19,27 @@ class AdminController extends Controller
     {
         $data = [
             'title' => 'Dashboard',
-            'sensor' => Sensor::latest()->get()
+            'sensor' => Sensor::latest()->get(),
+            'active' => 'dashboard',
         ];
         return Inertia::render('Admin/Home', ($data));
     }
 
+    public function all_tableSensor()
+    {
+        $data = [
+            'title' => 'TABLE ALL PH',
+            'sensor' => Sensor::all(),
+            'active' => 'all-table',
+        ];
+        return Inertia::render('Admin/TableAllSensor', ($data));
+    }
     public function table_ph()
     {
         $data = [
             'title' => 'TABLE PH',
-            'sensor' => Sensor::latest()->get()
+            'sensor' => Sensor::latest()->get(),
+            'active' => 'ph',
         ];
         return Inertia::render('Admin/TableSensor', ($data));
     }

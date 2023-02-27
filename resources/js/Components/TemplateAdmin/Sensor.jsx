@@ -1,5 +1,4 @@
 const Sensor = ({ data }) => {
-    console.log('data :', data)
     return (
         <>
             <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 justify-center all-sensor">
